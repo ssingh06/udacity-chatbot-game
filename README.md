@@ -43,8 +43,7 @@ In the current implementation, the user can get the following information about 
 
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-	3a. To build with debug flags `cmake -DCMAKE_BUILD_TYPE=Debug .. && make`
+3. Compile: `cmake .. && make`. To build with debug flags `cmake -DCMAKE_BUILD_TYPE=Debug .. && make`
 4. Run it: `./chatbot`.
 
 ## Design Details
