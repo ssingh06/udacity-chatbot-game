@@ -10,7 +10,7 @@ The ChatBot code creates a dialogue where users can ask questions about some asp
 The program works in the following three modes:
 1. Manage: In this mode, the user can query data about the Chatbot itself. The Chatbot asks the credentials of the user before letting them access this mode and then can provide basic information about the Chatbot. The user is required to enter a password (default password: 'password') in order to get access to this mode.
 
-In the current implementation, the user can get the following information about the chatbot in this mode:
+* In the current implementation, the user can get the following information about the chatbot in this mode:
     * Trivia High Scores (across all the times that the game was played on this machine)
     * Trivia total number of questions served to the user. (across all the times that the game was played on this machine)
     * Update Password
