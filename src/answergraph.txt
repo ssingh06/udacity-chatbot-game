@@ -1,0 +1,80 @@
+
+// define all graph nodes
+<TYPE:NODE><ID:0><ANSWER:Welcome! My name is MemBot. You can ask 'Manage', 'C++ Memory Model' and 'Games'>
+
+<TYPE:NODE><ID:1><ANSWER:Please enter manage password:>
+<TYPE:NODE><ID:2><ANSWER:You can ask me about things related to memory management in C++. Possible topics are 'pointers' and 'the C++ memory model'. What would you like to talk about?>
+<TYPE:NODE><ID:3><ANSWER:Choose the game you want to play. You can say 'Trivia'>
+
+// memory model nodes
+<TYPE:NODE><ID:4><ANSWER:Great! Let's talk about pointers. In computer science, a pointer is a special value whose meaning is a memory address. This address can contain either data, such as variables or objects, but also program codes (instructions). By dereferencing the pointer it is possible to access the data or the code. Among other things, pointers are used to manage dynamic memory. Other topics around pointers you can ask about are 'smart pointers' and 'nullptr'>
+<TYPE:NODE><ID:5><ANSWER:When instantiating variables, programmers can choose whether to do this on the heap, on the stack or in static memory. Do you want to know more about those two concepts? Simply ask me about 'heap', 'stack' or 'static'.>
+<TYPE:NODE><ID:6><ANSWER:A smart pointer is an object that behaves like a pointer, i.e. it must support pointer operations such as dereferencing or indirect access. In addition to these properties, the smart pointer handles resources better. In concrete terms, this means that it takes care not to cause a memory leak. A smart pointer exists in various flavors, which are unique_ptr, shared_ptr and weak_ptr. There are no more topics in this section, starting over!>
+<TYPE:NODE><ID:7><ANSWER:The value nullptr can be assigned to pointers of any type. This turns the pointer into a null pointer that does not point to a memory location. The nullptr keyword can be used to test if a pointer or handle reference is null before the reference is used. There are no more topics in this section, starting over!>
+<TYPE:NODE><ID:8><ANSWER:Local variables declared as part of a function are stored on the stack. Also, the stack is the place where function parameters are stored. Further, the stack is used for storing the return address of the calling functions, and it keeps the register contents and return address when an interrupt service routine is called. -- There are no more topics in this section, starting over!>
+<TYPE:NODE><ID:9><ANSWER:Heap memory, also known as dynamic memory, is an alternative to local stack memory. Local memory is allocated automatically on function call and it is deallocated automatically when a function exits. Heap memory is different. The programmer explicitly requests the allocation of a memory block of a particular size, and the block continues to be allocated until the programmer explicitly requests that it be deallocated. -- There are no more topics in this section, starting over!>
+<TYPE:NODE><ID:10><ANSWER:Static memory persists throughout the entire life of the program, and is usually used to store things like global variables, or variables created with the static clause. -- There are no more topics in this section, starting over!>
+
+// trivia nodes
+<TYPE:NODE><ID:11><ANSWER:Ready for a new question? (Yes/No)>
+<TYPE:NODE><ID:12><ANSWER:Dummy Question>
+<TYPE:NODE><ID:13><ANSWER:Starting Over>
+<TYPE:NODE><ID:14><ANSWER:You got it right! Continue? (Yes/No)><ANSWER:That's correct! Continue? (Yes/No)><ANSWER:Bingo! Continue? (Yes/No)>
+<TYPE:NODE><ID:15><ANSWER:Hard luck! Continue? (Yes/No)><ANSWER:That's incorrect. Continue? (Yes/No)>
+
+// manage nodes
+<TYPE:NODE><ID:16><ANSWER:Great! You can say 'Trivia Stats', 'High Scores', 'Update Password', 'Quit'>
+<TYPE:NODE><ID:17><ANSWER:Continue? (Yes/No)>
+<TYPE:NODE><ID:18><ANSWER:Continue? (Yes/No)>
+<TYPE:NODE><ID:19><ANSWER:Please enter your new password:>
+<TYPE:NODE><ID:20><ANSWER:Successfully reset your password! Continue? (Yes/No)>
+<TYPE:NODE><ID:21><ANSWER:Starting Over>
+
+// connect nodes with edges
+<TYPE:EDGE><ID:0><PARENT:0><CHILD:1><KEYWORD:manage><KEYWORD:admin>
+<TYPE:EDGE><ID:1><PARENT:0><CHILD:2><KEYWORD:C++><KEYWORD:memory model><KEYWORD:c++ memory model><KEYWORD:memory management>
+<TYPE:EDGE><ID:2><PARENT:0><CHILD:3><KEYWORD:game><KEYWORD:play games>
+
+<TYPE:EDGE><ID:3><PARENT:2><CHILD:4><KEYWORD:pointer><KEYWORD:smart pointer>
+<TYPE:EDGE><ID:4><PARENT:2><CHILD:5><KEYWORD:memory model><KEYWORD:heap><KEYWORD:stack>
+
+<TYPE:EDGE><ID:5><PARENT:4><CHILD:6><KEYWORD:unique pointer><KEYWORD:shared pointer><KEYWORD:weak pointer>
+<TYPE:EDGE><ID:6><PARENT:4><CHILD:7><KEYWORD:NULL><KEYWORD:null pointer><KEYWORD:nullptr>
+
+<TYPE:EDGE><ID:7><PARENT:5><CHILD:8><KEYWORD:stack><KEYWORD:stack memory><KEYWORD:local variable storage>
+<TYPE:EDGE><ID:8><PARENT:5><CHILD:9><KEYWORD:heap><KEYWORD:heap memory><KEYWORD:dynamic storage>
+<TYPE:EDGE><ID:9><PARENT:5><CHILD:10><KEYWORD:static><KEYWORD:static memory><KEYWORD:global variable storage>
+
+// trivia edges
+<TYPE:EDGE><ID:10><PARENT:3><CHILD:11><KEYWORD:trivia>
+<TYPE:EDGE><ID:11><PARENT:11><CHILD:12><KEYWORD:yes><KEYWORD:sure>
+<TYPE:EDGE><ID:13><PARENT:12><CHILD:14><KEYWORD:Dummy Correct Answer>
+<TYPE:EDGE><ID:14><PARENT:12><CHILD:15><KEYWORD:a>
+<TYPE:EDGE><ID:15><PARENT:14><CHILD:11><KEYWORD:yes><KEYWORD:sure>
+<TYPE:EDGE><ID:17><PARENT:15><CHILD:11><KEYWORD:yes><KEYWORD:sure>
+<TYPE:EDGE><ID:19><PARENT:12><CHILD:11><KEYWORD:Error Edge!!>
+
+// trivia_end_node transitions
+<TYPE:EDGE><ID:12><PARENT:11><CHILD:13><KEYWORD:no><KEYWORD:quit><KEYWORD:abort>
+<TYPE:EDGE><ID:20><PARENT:12><CHILD:13><KEYWORD:quit><KEYWORD:abort>
+<TYPE:EDGE><ID:16><PARENT:14><CHILD:13><KEYWORD:no><KEYWORD:quit><KEYWORD:abort>
+<TYPE:EDGE><ID:18><PARENT:15><CHILD:13><KEYWORD:no><KEYWORD:quit><KEYWORD:abort>
+
+
+// manage edges
+<TYPE:EDGE><ID:21><PARENT:1><CHILD:16><KEYWORD:dummy password>
+<TYPE:EDGE><ID:22><PARENT:1><CHILD:0><KEYWORD:a>
+<TYPE:EDGE><ID:23><PARENT:16><CHILD:17><KEYWORD:trivia stats><KEYWORD:trivia><KEYWORD:stats>
+<TYPE:EDGE><ID:24><PARENT:16><CHILD:18><KEYWORD:high scores><KEYWORD:scores>
+<TYPE:EDGE><ID:25><PARENT:17><CHILD:16><KEYWORD:yes><KEYWORD:continue>
+<TYPE:EDGE><ID:26><PARENT:18><CHILD:16><KEYWORD:yes><KEYWORD:continue>
+
+<TYPE:EDGE><ID:27><PARENT:16><CHILD:19><KEYWORD:change password><KEYWORD:update password>
+<TYPE:EDGE><ID:28><PARENT:19><CHILD:20><KEYWORD:a>
+<TYPE:EDGE><ID:29><PARENT:20><CHILD:16><KEYWORD:yes><KEYWORD:continue>
+
+// manage_end_node transitions
+<TYPE:EDGE><ID:30><PARENT:16><CHILD:21><KEYWORD:no><KEYWORD:quit><KEYWORD:abort>
+<TYPE:EDGE><ID:31><PARENT:17><CHILD:21><KEYWORD:no><KEYWORD:quit><KEYWORD:abort>
+<TYPE:EDGE><ID:32><PARENT:18><CHILD:21><KEYWORD:no><KEYWORD:quit><KEYWORD:abort>
+<TYPE:EDGE><ID:33><PARENT:20><CHILD:21><KEYWORD:no><KEYWORD:quit><KEYWORD:abort>

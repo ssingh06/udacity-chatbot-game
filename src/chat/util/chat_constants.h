@@ -1,0 +1,15 @@
+//
+// Created by root on 4/13/20.
+//
+
+#ifndef CHATBOT_CHAT_CONSTANTS_H
+#define CHATBOT_CHAT_CONSTANTS_H
+
+enum CHAT_MODE {
+    DEFAULT_MODE,
+    MANAGE_MODE,
+    MEM_MODE,
+    TRIVIA_MODE
+};
+
+#endif //CHATBOT_CHAT_CONSTANTS_H
