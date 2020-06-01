@@ -10,9 +10,9 @@ link_directories( ${CURL_LIBRARIES} )
 # curl related cmake changes - end
 
 file(GLOB SOURCES
-        *.cpp *.h
-        restapi/*.cpp restapi/*.h)
-add_library(membot_http ${SOURCES})
-target_include_directories(membot_http PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(membot_http PRIVATE curl)
-target_link_libraries(membot_http PRIVATE message_queue)
+        *.cpp
+        restapi/*.cpp)
+add_library(chatbot_http ${SOURCES})
+
+target_include_directories(chatbot_http PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(chatbot_http PRIVATE curl)
