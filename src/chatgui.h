@@ -9,8 +9,7 @@
 class ChatLogic; // forward declaration
 
 // middle part of the window containing the dialog between user and chatbot
-class ChatBotPanelDialog : public wxScrolledWindow
-{
+class ChatBotPanelDialog : public wxScrolledWindow {
 private:
     // control elements
     wxBoxSizer *_dialogSizer;
@@ -21,7 +20,6 @@ private:
 public:
     // constructor / destructor
     ChatBotPanelDialog(wxWindow *parent, wxWindowID id);
-    ~ChatBotPanelDialog();
 
     // getter / setter
     ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
@@ -43,8 +41,7 @@ public:
 };
 
 // dialog item shown in ChatBotPanelDialog
-class ChatBotPanelDialogItem : public wxPanel
-{
+class ChatBotPanelDialogItem : public wxPanel {
 private:
     // control elements
     wxStaticBitmap *_chatBotImg;
@@ -56,8 +53,7 @@ public:
 };
 
 // frame containing all control elements
-class ChatBotFrame : public wxFrame
-{
+class ChatBotFrame : public wxFrame {
 private:
     // control elements
     ChatBotPanelDialog *_panelDialog;
@@ -72,14 +68,13 @@ public:
 };
 
 // control panel for background image display
-class ChatBotFrameImagePanel : public wxPanel
-{
+class ChatBotFrameImagePanel : public wxPanel {
     // control elements
     wxBitmap _image;
 
 public:
-    // constructor / desctructor
-    ChatBotFrameImagePanel(wxFrame *parent);
+    // constructor / destructor
+    ChatBotFrameImagePanel(wxFrame *parent) : wxPanel(parent) {}
 
     // events
     void paintEvent(wxPaintEvent &evt);
@@ -90,11 +85,10 @@ public:
 };
 
 // wxWidgets app that hides main()
-class ChatBotApp : public wxApp
-{
+class ChatBotApp : public wxApp {
 public:
     // events
-    virtual bool OnInit();
+    virtual bool OnInit() override;
 };
 
 #endif /* CHATGUI_H_ */
