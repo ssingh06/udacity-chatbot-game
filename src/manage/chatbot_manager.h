@@ -29,7 +29,7 @@ public:
     ChatbotManager& operator=(const ChatbotManager&) = delete;
 
 private:
-    bool _isRunning{false};
+    bool isRunning_{false};
     std::map<std::string, std::string> _runningConfig;
 
     ChatbotManager() = default;

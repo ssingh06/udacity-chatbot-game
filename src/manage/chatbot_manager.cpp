@@ -16,29 +16,29 @@ ChatbotManager & ChatbotManager::GetInstance() {
 }
 
 void ChatbotManager::Start() {
-    if (_isRunning) {
+    if (isRunning_) {
         return;
     }
 
     /* load the running config */
     LoadConfig();
 
-    /* mark _isRunning as true */
-    _isRunning = true;
+    /* mark isRunning_ as true */
+    isRunning_ = true;
 }
 
 void ChatbotManager::Stop() {
-    if (!_isRunning) {
+    if (!isRunning_) {
         return;
     }
-    _isRunning = false;
+    isRunning_ = false;
 
     /* store the running config */
     StoreConfig();
 }
 
 std::string ChatbotManager::GetUsername() const {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Returning error value." << std::endl;
         return std::string();
     }
@@ -47,7 +47,7 @@ std::string ChatbotManager::GetUsername() const {
 }
 
 void ChatbotManager::SetUsername(const std::string& username) {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Ignoring update." << std::endl;
         return;
     }
@@ -61,7 +61,7 @@ void ChatbotManager::SetUsername(const std::string& username) {
 }
 
 std::string ChatbotManager::GetPassword() const {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Returning error value." << std::endl;
         return std::string();
     }
@@ -70,7 +70,7 @@ std::string ChatbotManager::GetPassword() const {
 }
 
 void ChatbotManager::SetPassword(const std::string& password) {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Ignoring update." << std::endl;
         return;
     }
@@ -84,7 +84,7 @@ void ChatbotManager::SetPassword(const std::string& password) {
 }
 
 long ChatbotManager::GetGameHighScore(std::string gameName) const {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Returning error value." << std::endl;
         return -1;
     }
@@ -93,7 +93,7 @@ long ChatbotManager::GetGameHighScore(std::string gameName) const {
 }
 
 void ChatbotManager::SetGameHighScore(std::string gameName, long highScore) {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Ignoring update." << std::endl;
         return;
     }
@@ -107,7 +107,7 @@ void ChatbotManager::SetGameHighScore(std::string gameName, long highScore) {
 }
 
 long ChatbotManager::GetTriviaQuestionCount() const {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Returning error value." << std::endl;
         return -1;
     }
@@ -116,7 +116,7 @@ long ChatbotManager::GetTriviaQuestionCount() const {
 }
 
 void ChatbotManager::SetTriviaQuestionCount(long questionCount) {
-    if (!_isRunning) {
+    if (!isRunning_) {
         std::cout << "Error: ChatbotManager not running. Ignoring update." << std::endl;
         return;
     }
